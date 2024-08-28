@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html inputs</title>
+    <style>
+      input {
+        padding: 10px;
+        border-radius: 4px;
+      }
+
+      label {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <label for="first-name">What is your first name?</label>
+      <input type="text" id="first-name" placeholder="i.e: John" />
+    </div>
+    <div>
+      <label>What is your birthday?</label>
+      <input type="date" id="dob" />
+    </div>
+    <div>
+      <label>What is your fave colour?</label>
+      <input type="color" />
+    </div>
+    <div>
+      <form action="/submit">
+        <label type="email">What is your email address?</label>
+        <input type="email" name="email" id="email" />
+
+        <input type="submit" value="sign up" />
+      </form>
+    </div>
+    <div>
+      <label for="countries">Which country would you like to travel to?</label>
+      <select id="countries">
+        <option value="">Select a country</option>
+        <option value="italy">Italy</option>
+        <option value="france">France</option>
+        <option value="usa">USA</option>
+        <option value="japan">Japan</option>
+        <option value="brazil">Brazil</option>
+      </select>
+    </div>
+    <script>
+      function showSelectedCountry(event) {
+        if (event.target.value.length > 0) {
+          if (event.target.value === "italy") {
+            alert("Bongiorno");
+          }
+          if (event.target.value === "france") {
+            alert("Bonjour");
+          }
+          if (event.target.value === "usa") {
+            alert("Hello");
+          }
+          if (event.target.value === "japan") {
+            alert("Kon'nichiwa");
+          }
+          if (event.target.value === "Brazil") {
+            alert("Ola");
+          }
+        }
+      }
+
+      let countriesSelect = document.querySelector("#countries");
+
+      countriesSelect.addEventListener("change", showSelectedCountry);
+    </script>
+  </body>
+</html>

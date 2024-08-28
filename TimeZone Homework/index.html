@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TimeZone Selector</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.45/moment-timezone-with-data-1970-2030.js"></script>
+    <style>
+      .container {
+        margin: 10px;
+      }
+
+      select {
+        border-radius: 4px;
+        font-size: 14px;
+        color: black;
+        background-color: lightgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <select id="cities">
+        <option value="">Please Select City</option>
+        <option value="Europe/London">London 🇬🇧</option>
+        <option value="Australia/Sydney">Sydney 🇦🇺</option>
+        <option value="Asia/Tokyo">Tokyo 🇯🇵</option>
+        <option value="Europe/Berlin">Berlin 🇩🇪</option>
+      </select>
+    </div>
+
+    <script>
+      function tellTime(event) {
+        if (event.target.value.length > 0) {
+          let currentTime = moment()
+            .tz(event.target.value)
+            .format("dddd, MMMM d, YYYY hh:mm A");
+          alert(`It is ${currentTime} in ${event.target.value}`);
+        }
+      }
+
+      let citySelect = document.querySelector("#cities");
+
+      citySelect.addEventListener("change", tellTime);
+    </script>
+  </body>
+</html>
